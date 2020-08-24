@@ -17,9 +17,9 @@
 				placeholder="Informe seu CPF"/>
 			</b-form-group>
             <b-form-group label="Sexo*">
-                <input v-model="usuario.sexo" type="radio" id="Masculino" name="gender" value="male">
+                <input v-model="usuario.sexo" type="radio" id="Masculino" name="gender" value="masculino">
                 <label for="male">Masculino</label><br>
-                <input v-model="usuario.sexo" type="radio" id="Femenino" name="gender" value="female">
+                <input v-model="usuario.sexo" type="radio" id="Femenino" name="gender" value="femenino">
                 <label for="female">Femenino</label><br>
             </b-form-group>
             <b-form-group label="Data de Nascimento*">
@@ -138,7 +138,7 @@ export default {
 			this.usuario = { ...this.usuarios[id]}
 		},
 		excluir(id) {
-			this.$http.delete(`https://crud-vue-mp.firebaseio.com/usuarios/${id}.json`)
+			this.$http.delete(`https://jsonbox.io/box_dc99498e98255239999c/usuarios/${id}.json`)
 			.then(() => {
 				this.limpar()
 				this.mensagens.push({
@@ -158,7 +158,7 @@ export default {
 		salvar() {
 			const metodo = this.id ? 'patch' : 'post'
 			const finalUrl = this.id ? `/${this.id}.json` : '.json'
-			this.$http[metodo](`https://crud-vue-mp.firebaseio.com//usuarios${finalUrl}`, this.usuario)
+			this.$http[metodo](`https://jsonbox.io/box_dc99498e98255239999c/usuarios${finalUrl}`, this.usuario)
 			.then(() => {
 				this.limpar()
 				this.mensagens.push({
@@ -173,7 +173,7 @@ export default {
 		//Editando usuarios - Metodo GET
 		//Posso tambem usar no lugar de usuarios.json o /usuarios
 		obterUsuarios() {
-			this.$http.get('https://crud-vue-mp.firebaseio.com//usuarios.json',).then(res => {
+			this.$http.get('https://jsonbox.io/box_dc99498e98255239999c/usuarios.json',).then(res => {
 				this.usuarios = res.data
 				
 			})
