@@ -16,14 +16,10 @@
 </template>
 
 <script>
-import axios from 'axios'
-import {TheMask} from 'vue-the-mask';
-import {required} from 'vuelidate/lib/validators';
 import CadastroCpf from "@/components/CadastroCpf.vue";
 import CadastroCnpj from "@/components/CadastroCnpj.vue";
 export default {
-    components: {
-        TheMask, 
+    components: { 
         CadastroCpf,
         CadastroCnpj
     },

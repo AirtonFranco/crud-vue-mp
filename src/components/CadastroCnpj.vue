@@ -88,7 +88,6 @@
 <script>
 import axios from 'axios'
 import {TheMask} from 'vue-the-mask';
-import {required} from 'vuelidate/lib/validators';
 export default {
     components: {TheMask},
 	data() {
@@ -139,7 +138,6 @@ export default {
 					tipo: 'danger'
 				})
 			})
-			//Quando houver erro
 			.catch(err => {
 				this.mensagens.push({
 					texto: 'Problema para excluir!',

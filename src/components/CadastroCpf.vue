@@ -160,7 +160,6 @@ export default {
 			const finalUrl = this.id ? `/${this.id}.json` : '.json'
 			this.$http[metodo](`https://crud-vue-mp.firebaseio.com//usuarios${finalUrl}`, this.usuario)
 			.then(() => {
-                this.validacao()
 				this.limpar()
 				this.mensagens.push({
 					texto: 'Operação Realizada com sucesso',
@@ -169,19 +168,7 @@ export default {
             })
              
         },
-        validacao() {
-            if(this.usuario.nome == "" || this.usuario.nome == " " || 
-            this.usuario.nome.length < 3) { this.deuErro = true;
-        }else{
-            this.usuario.push({nome: this.usuario.nome, cpf:this.usuario.cpf, sexo:this.usuario.sexo,
-            nascimento:this.usuario.nascimento, email:this.usuario.email, telefone:this.usuario.telefone,
-            celular:this.usuario.celular, img:this.usuario.img
-            
-            })
-        }
-        this.limpar()
-        this.deuErro = false;
-    },
+        
     
 		//Editando usuarios - Metodo GET
 		//Posso tambem usar no lugar de usuarios.json o /usuarios

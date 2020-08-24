@@ -1,4 +1,4 @@
-# http-exercicios
+# crud-vue-mp
 
 ## Project setup
 ```
