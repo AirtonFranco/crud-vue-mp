@@ -5,7 +5,7 @@
 		:variant="mensagem.tipo">{{mensagem.texto}}</b-alert>
 		<b-card>
 			<b-form-group label="Nome*">
-                <small class="erroAlert" v-show="deuErro">Nome é invalido, tente novamente</small>
+                <small v-show="deuErro">Nome é invalido, tente novamente</small>
 				<b-form-input type="text" size='lg'
 				v-model="usuario.nome"
 				placeholder="Informe seu Nome">
@@ -97,7 +97,7 @@ export default {
     components: {TheMask},
 	data() {
 		return {
-            deuErro: true,
+            deuErro: false,
 			mensagens: [],
 			usuarios: [],
 			id: null,
@@ -164,23 +164,25 @@ export default {
 				this.limpar()
 				this.mensagens.push({
 					texto: 'Operação Realizada com sucesso',
-					tipo: 'success'
+                    tipo: 'success'      
                 })
-			})
+            })
+             
         },
         validacao() {
-            if(this.usuario.nome == "" || this.usuario.name == " " || 
+            if(this.usuario.nome == "" || this.usuario.nome == " " || 
             this.usuario.nome.length < 3) { this.deuErro = true;
         }else{
             this.usuario.push({nome: this.usuario.nome, cpf:this.usuario.cpf, sexo:this.usuario.sexo,
-            nascimento:this.usuario.nascimento, email:this.usuario.email, telefone:this.usuario.telefon,
+            nascimento:this.usuario.nascimento, email:this.usuario.email, telefone:this.usuario.telefone,
             celular:this.usuario.celular, img:this.usuario.img
             
             })
         }
         this.limpar()
-            deuErro = false;
+        this.deuErro = false;
     },
+    
 		//Editando usuarios - Metodo GET
 		//Posso tambem usar no lugar de usuarios.json o /usuarios
 		obterUsuarios() {
@@ -206,8 +208,4 @@ export default {
 	text-align: center;
 	margin: 50px;
 }
-
-.erroAlert {
-	color: red;
-} 
 </style>
