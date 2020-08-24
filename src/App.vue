@@ -2,12 +2,12 @@
 
   <div id="app">   
 	<section>
-		<b-nav pills class="top">
-    		<router-link to="/"><b-nav-item active>Home</b-nav-item></router-link>
-    		<router-link to="/cadastro"><b-nav-item>Cadastro</b-nav-item></router-link>
-    		<b-nav-item>Another Link</b-nav-item>
-  		</b-nav>
-	</section> 
+		<b-nav class="top">
+    <router-link to="/"><button class="btn btn-secondary">Home</button></router-link>
+    <router-link to="/cadastro"><button class="btn btn-secondary">Cadastros</button></router-link>
+  </b-nav>
+	</section>
+  
 	<router-view />   
   </div>
 </template>
